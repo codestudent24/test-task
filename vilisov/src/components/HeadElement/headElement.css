@@ -1,0 +1,25 @@
+.head-element {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  width: 800px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.head-element > div {
+  margin-right: 1rem;
+}
+
+.head-element .task {
+  width: 230px;
+}
+
+.head-element .date {
+  width: 136px;
+}
+
+.head-element .time {
+  width: 100px;
+}
