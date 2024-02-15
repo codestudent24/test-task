@@ -1,8 +1,8 @@
 import { FC, UIEvent, useEffect, useRef, useState } from "react";
-import { postApi } from "../../api/api";
+import { postApi } from "../../app/api/api";
+import useDebounce from "../../features/useDebounse";
 import { PostItem } from "../PostItem";
-import './postList.css';
-import useDebounce from "./useDebounse";
+import './ui/postList.css';
 
 export const PostList: FC = () => {
   const [currentPostStart, setCurrentPostStart] = useState(0)

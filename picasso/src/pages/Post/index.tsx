@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetPostByIdQuery } from "../../api/api";
-import { PostItemFull } from "../../components/PostItemFull";
+import { useGetPostByIdQuery } from "../../app/api/api";
+import { PostItemFull } from "../../widgets/PostItemFull";
 
 export default function PostPage() {
   const navigate = useNavigate();

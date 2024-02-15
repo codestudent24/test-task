@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { Post } from "../../api/api.types";
-import './postItem.css';
+import { Post } from "../../shared/types";
+import './ui/postItem.css';
 
 interface IPostItemProps {
   post: Post

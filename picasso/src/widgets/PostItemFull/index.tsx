@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Post } from "../../api/api.types";
-import './postItemFull.css';
+import { Post } from "../../shared/types";
+import './ui/postItemFull.css';
 
 interface IPostItemProps {
   post: Post

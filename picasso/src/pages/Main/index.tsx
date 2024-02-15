@@ -1,4 +1,4 @@
-import { PostList } from "../../components/PostList";
+import { PostList } from "../../widgets/PostList";
 
 export default function MainPage() {
   return (
