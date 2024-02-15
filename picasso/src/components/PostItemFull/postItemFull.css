@@ -1,0 +1,22 @@
+.container-full__title {
+  margin-bottom: 1rem;
+}
+
+.container-full__title::first-letter {
+  text-transform: uppercase;
+}
+
+.container-full__number {
+  margin: 0 auto 1rem;
+}
+
+.container-full__text {
+  margin: 0 auto 1rem;
+  max-width: 60%;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.container-full__text::first-letter {
+  text-transform: uppercase;
+}

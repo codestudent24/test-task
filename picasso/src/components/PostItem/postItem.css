@@ -1,0 +1,41 @@
+.container {
+  max-width: 1280px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container__number {
+  width: fit-content;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.container__title {
+  margin-left: 1rem;
+  width: 20%;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.container__title::first-letter {
+  text-transform: uppercase;
+}
+
+.container__text {
+  margin-left: 1rem;
+  flex-grow: 2;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.container__text::first-letter {
+  text-transform: uppercase;
+}
