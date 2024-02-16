@@ -5,11 +5,11 @@ import PostPage from '../../pages/Post'
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/test-task/',
     element: <MainPage />,
   },
   {
-    path: '/:id',
+    path: '/test-task/:id',
     element: <PostPage />,
   },
   {

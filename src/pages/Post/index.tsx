@@ -21,7 +21,7 @@ export default function PostPage() {
         <h2>Sorry, no post with such id found</h2>
       )}
       <button className='button' onClick={() => {
-          navigate('/')
+          navigate('/test-task')
         }}
       >
         Назад

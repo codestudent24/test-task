@@ -21,7 +21,7 @@ export const PostItem: FC<IPostItemProps> = ({ post }) => {
         {post.body}
       </div>
       <button className='button' onClick={() => {
-        navigate(`/${post.id}`)
+        navigate(`/test-task/${post.id}`)
       }}
       >Посмотреть</button>
     </div>
