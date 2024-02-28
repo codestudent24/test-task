@@ -1,34 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import { useGetItemsMutation } from './api/api'
+import { ListItem } from './components/ItemList'
+import Loader from './components/Loader/Loader'
+import { Pagination } from './components/Pagination'
+import { TypeProduct } from './types/product.type'
+import { getUniqueItems } from './utils/getUniqueItems'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ items, setItems] = useState<TypeProduct[]>([])
+  const [ ids, setIds ] = useState<string[]>([])
+  const [ mutateItems ] = useGetItemsMutation()
+  const [ isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    function getItems() {
+      setIsLoading(true)
+      mutateItems({ ids }).unwrap()
+      .then(response => {
+        const items = getUniqueItems(response.result)
+        setItems(items)
+      })
+      .catch(error => console.log(`rejected: ${error}`))
+      .finally(() => { setIsLoading(false) })
+    }
+    if (ids.length) getItems()
+  }, [ids, mutateItems])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main>
+      <h1>Список товаров</h1>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ListItem items={items} />
+      )}
+      <Pagination setIds={setIds} />
+    </main>
   )
 }
 
