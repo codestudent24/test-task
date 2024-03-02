@@ -1,0 +1,1 @@
+export type TypeFilterName = 'brand' | 'product' | 'price'

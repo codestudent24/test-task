@@ -15,7 +15,7 @@ export const ListItem: FC<TypeProps> = ({
         <ul className={styles.list}>
           {items.map((item, index) =>
             <div key={item.id + index} className={styles.card}>
-              <h3>Наименование: {item.product}</h3>
+              <h3>{item.product}</h3>
               <div className={styles.id}>id: {item.id}</div>
               {item.brand && (
                 <div><strong>Брэнд:</strong> {item.brand}</div>
