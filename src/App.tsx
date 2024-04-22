@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import { Header } from './components/UI/Header'
 
 import './App.css'
+import { Footer } from './components/UI/Footer'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
         <Outlet />
       </main>
 
-      <footer>Спасибо за участие в тестировании!</footer>
+      <Footer />
     </div>
   )
 }

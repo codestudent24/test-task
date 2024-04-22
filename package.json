@@ -1,5 +1,6 @@
 {
   "name": "test-task",
+  "author": "codestudent24",
   "private": true,
   "version": "0.0.0",
   "type": "module",
