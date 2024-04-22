@@ -1,13 +1,13 @@
 import { Button, FormControl, TextField } from "@mui/material";
 import { FC, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CheckRole } from "../components/Auth/CheckRole";
-import { ROLE_ENUM, formStyle } from "../shared/constants";
-import { checkAdminCredentials } from "../shared/helpers/checkAdminCredentials";
-import { validateAuthInput } from "../shared/helpers/validateAuthInput";
-import { ValidationErrorState } from "../shared/types";
-import { useAppDispatch } from "../store/hooks";
-import { login } from "../store/userSlice";
+import { CheckRole } from "../../components/Auth/CheckRole";
+import { ROLE_ENUM, formStyle } from "../../shared/constants";
+import { checkAdminCredentials } from "../../shared/helpers/checkAdminCredentials";
+import { validateAuthInput } from "../../shared/helpers/validateAuthInput";
+import { ValidationErrorState } from "../../shared/types";
+import { useAppDispatch } from "../../store/hooks";
+import { login } from "../../store/userSlice";
 
 const selectTextOnRole = {
   [ROLE_ENUM.admin]: {
@@ -26,8 +26,8 @@ const selectTextOnRole = {
 
 export const AuthForm: FC = () => {
 
-  const [firstName, setFirstName] = useState('')
-  const [secondName, setSecondName] = useState('')
+  const [firstName, setFirstName] = useState('Василий')
+  const [secondName, setSecondName] = useState('Уткин')
   const [role, setRole] = useState<ROLE_ENUM>(ROLE_ENUM.user)
 
   const [firstNameError, setFirstNameError] = useState<ValidationErrorState>(null)
@@ -48,8 +48,8 @@ export const AuthForm: FC = () => {
     if (firstErr || secondErr) return
 
     if(role === ROLE_ENUM.admin && !checkAdminCredentials(firstName, secondName)) {
-      setFirstNameError('Неверный логин или пароль')
-      setSecondNameError('Неверный логин или пароль')
+      setFirstNameError('admin') // 'Неверный логин или пароль'
+      setSecondNameError('admin')
       return
     }
 

@@ -14,5 +14,5 @@ export default function useAuth(admin: boolean = false) {
     }
   }, [admin, firstName, isAdmin, navigate])
 
-  return { firstName, secondName }
+  return { firstName, secondName, isAdmin }
 }

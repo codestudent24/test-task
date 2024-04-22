@@ -1,0 +1,26 @@
+.editTaskWrapper {
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  border: 1px solid #213547;
+  border-radius: 20px;
+}
+
+.editTaskWrapper h3 {
+  text-align: left;
+}
+
+.answerItemContainer {
+  position: relative;
+  margin: 0.2rem auto;
+  text-align: left;
+}
+
+.answerItemContainer > button {
+  position: absolute;
+  top: 12px;
+  right: 6px;
+}
+
+.correctEditContainer {
+  margin-bottom: 1rem;
+}

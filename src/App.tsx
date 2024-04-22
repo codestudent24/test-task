@@ -11,7 +11,7 @@ function App() {
 
       <main>
         <h1>Тестирование по программе</h1>
-        <h3>версия 0.1</h3>
+        <h3 className='app-version'>версия 0.1</h3>
         <Outlet />
       </main>
 

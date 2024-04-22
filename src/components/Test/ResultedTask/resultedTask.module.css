@@ -1,0 +1,44 @@
+.taskWrapper {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid #213547;
+  border-radius: 20px;
+}
+
+.answersContainer {
+  padding: 0;
+  list-style: none;
+}
+
+.answersContainer > li {
+  margin: 0.25rem auto;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.1rem;
+}
+
+.correctAnswer {
+  background-color: rgba(128, 255, 128, 0.5);
+}
+
+.incorrectAnswer {
+  background-color: rgba(255, 128, 128, 0.7);
+}
+
+.answer {
+  background-color: rgba(191, 191, 191, 0.7);
+}
+
+.correctTextAnswer {
+  margin: 0.5rem auto;
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  background-color: rgba(128, 255, 128, 0.5);
+}
+
+.incorrectTextAnswer {
+  margin: 0.5rem auto;
+  padding: 0.25rem;
+  min-height: 26px;
+  font-size: 1.1rem;
+  background-color: rgba(255, 128, 128, 0.7);
+}

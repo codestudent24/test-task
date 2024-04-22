@@ -1,18 +1,33 @@
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button } from "@mui/material";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { logout } from "../../store/userSlice";
 
 export const Header: FC = () => {
   const { firstName } = useAppSelector(state => state.user)
-  console.log('rendered', firstName)
+  const dispatch = useAppDispatch();
+
+  function handleLogout() {
+    dispatch(logout())
+  }
 
   return <>
     <header className='header'>
       <nav className='navbar'>
         <NavLink to={'/'}>На главную</NavLink>
-        <NavLink to={'/auth'}>Войти</NavLink>
+        {firstName ? (
+          <NavLink to={'/select-test'}>Тесты</NavLink>
+        ) : (
+          <NavLink to={'/auth'}><LoginIcon sx={{ position: 'relative', top: '6px' }}/> Войти</NavLink>
+        )}
       </nav>
-      <span className='header__span'>Добро пожаловать, {firstName || 'гость'}!</span>
+      <div>
+        <span className='header__span'>Добро пожаловать, {firstName || 'гость'}!</span>
+        {firstName && <Button onClick={handleLogout}><LogoutIcon /></Button>}
+      </div>
     </header>
   </>
 }

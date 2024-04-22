@@ -1,12 +1,21 @@
 export type ValidationErrorState = string | null
 
-type QuestionType = 'one' | 'multiple' | 'text' | 'number'
+export type QuestionType = 'one' | 'multiple' | 'text' | 'text-large' | 'number'
+
+export enum QUESTION_TYPES_ENUM {
+  one = 'one',
+  multiple = 'multiple',
+  text = 'text',
+  textLarge = 'text-large',
+  number = 'number',
+}
+
 type AnswerType = string | string[]
 
 export type TaskType = {
   id: number,
   question: string;
-  questionType: QuestionType
+  questionType: QUESTION_TYPES_ENUM
   answers: string[] | null;
   correct: AnswerType
 }
@@ -23,4 +32,8 @@ export type TaskProgressType = Record<number, AnswerType>
 
 export type TestProgressType = {
   [id: number]: AnswerType
+}
+
+export type CheckBoxDataType = {
+  [text: string]: boolean
 }

@@ -1,0 +1,23 @@
+.taskWrapper {
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  border: 1px solid #213547;
+  border-radius: 20px;
+}
+
+.taskWrapper h3 {
+  text-align: left;
+}
+
+.question > span {
+  position: relative;
+  left: 1rem;
+  font-weight: normal;
+  font-size: smaller;
+}
+
+.answers > p {
+  margin: 0.2rem auto;
+  padding-left: 1rem;
+  text-align: left;
+}

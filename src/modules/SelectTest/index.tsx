@@ -4,7 +4,10 @@ import { FC, useState } from "react";
 import { SUBJECTS_ENUM, formStyle } from "../../shared/constants";
 import { mockTests } from "../../shared/mockTests";
 
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
+import { useAppDispatch } from '../../store/hooks';
+import { setTest } from '../../store/testSlice';
 import styles from './TestList.module.css';
 
 const HumanReadableSubject = {
@@ -18,7 +21,10 @@ type TestNameWithSlug = {
 }
 
 export const TestList: FC = () => {
-  const { firstName } = useAuth()
+  const { firstName, isAdmin } = useAuth()
+
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
   const [selectedSubject, setSelectedSubject] = useState<SUBJECTS_ENUM>(SUBJECTS_ENUM.math)
   const [selectedTest, setSelectedTest] = useState<TestNameWithSlug | null>(null)
@@ -33,9 +39,18 @@ export const TestList: FC = () => {
     setSelectedTest({ name, slug })
   }
 
-  function handleSubmit(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  async function handleSubmit(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.preventDefault()
-    console.log(selectedSubject, selectedTest?.slug)
+    const testsInSubject = mockTests[selectedSubject]
+    const test = testsInSubject.find(test => test.slug === selectedTest?.slug)
+
+    if (test) {
+      dispatch(setTest({ slug: test.slug, tasks: test.tasks }))
+      setTimeout(() => {
+        const navigatePath = isAdmin ? '/edit-test' : '/test'
+        navigate(navigatePath)
+      }, 100)
+    }
   }
 
   return (
@@ -61,7 +76,7 @@ export const TestList: FC = () => {
               margin: '0.5rem auto 0',
               width: '100%',
             }}
-            onClick={() => { handleSelectTest(test.name, test.slug); console.log(test) }}
+            onClick={() => { handleSelectTest(test.name, test.slug) }}
           >
             {test.name}
           </Button>

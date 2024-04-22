@@ -1,0 +1,30 @@
+.progressContainer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 2rem;
+  margin: 1rem auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressContainer > div {
+  flex-grow: 2;
+  max-width: 60px;
+  height: 10px;
+  box-shadow: 2px 2px 3px #ACACAC;
+}
+
+.activeTask {
+  background-color: lightgreen;
+}
+
+.doneTask {
+  background-color: #404040;
+}
+
+.undoneTask {
+  background-color: #1976d2;
+}

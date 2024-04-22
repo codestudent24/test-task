@@ -7,10 +7,24 @@ interface userState {
   isAdmin: boolean,
 }
 
+const USER_STATE = 'user-state';
+
+function getFromLocaleStorage(): userState | null {
+  const stateString = localStorage.getItem(USER_STATE)
+  if (stateString) return JSON.parse(stateString) as userState
+  return null
+}
+
+function saveToLocalStorage(state: userState) {
+  localStorage.setItem(USER_STATE, JSON.stringify(state))
+}
+
+const storageUser = getFromLocaleStorage()
+
 const initialState: userState = {
-  firstName: null,
-  secondName: null,
-  isAdmin: false,
+  firstName: storageUser?.firstName || null,
+  secondName: storageUser?.secondName || null,
+  isAdmin: storageUser?.isAdmin || false,
 }
 
 export const userSlice = createSlice({
@@ -22,11 +36,13 @@ export const userSlice = createSlice({
       state.firstName = firstName;
       state.secondName = secondName;
       state.isAdmin = isAdmin;
+      saveToLocalStorage(state)
     },
     logout: (state) => {
       state.firstName = null;
       state.secondName = null;
       state.isAdmin = false;
+      localStorage.removeItem(USER_STATE)
     },
   },
 })
