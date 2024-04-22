@@ -1,7 +1,5 @@
 export type ValidationErrorState = string | null
 
-export type QuestionType = 'one' | 'multiple' | 'text' | 'text-large' | 'number'
-
 export enum QUESTION_TYPES_ENUM {
   one = 'one',
   multiple = 'multiple',
