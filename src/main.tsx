@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { NavLink, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { AuthForm } from './modules/Auth/AuthForm.tsx';
 import { Results } from './modules/Results/index.tsx';
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <>
+      <h1>Такой страницы не существует!</h1>
+      <NavLink to={'/'}>На главную</NavLink>
+    </>,
     children: [
       {
         path: "auth",
@@ -39,7 +43,9 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+], {
+  basename: '/test-task'
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

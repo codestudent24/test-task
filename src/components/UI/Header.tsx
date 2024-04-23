@@ -1,6 +1,5 @@
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Button } from "@mui/material";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -26,7 +25,7 @@ export const Header: FC = () => {
       </nav>
       <div>
         <span className='header__span'>Добро пожаловать, {firstName || 'гость'}!</span>
-        {firstName && <Button onClick={handleLogout}><LogoutIcon /></Button>}
+        {firstName && <NavLink to={'/auth'} onClick={handleLogout}><LogoutIcon /></NavLink>}
       </div>
     </header>
   </>

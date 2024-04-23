@@ -1,9 +1,8 @@
-import { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-
 import { Button } from "@mui/material";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { ResultedTask } from "../../components/Test/ResultedTask";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { clearTest } from "../../store/testSlice";
 import styles from './results.module.css';
 

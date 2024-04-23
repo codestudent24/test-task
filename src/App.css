@@ -46,6 +46,13 @@
   width: fit-content;
 }
 
+.header > div > a {
+  display: block;
+  position: relative;
+  top: 4px;
+  margin-left: 1rem;
+}
+
 .navbar {
   display: block;
   margin-right: 1rem;
