@@ -1,0 +1,65 @@
+@use 'src/assets/colors';
+
+.bagsContainer {
+  position: relative;
+  margin-bottom: 33px;
+  padding: 20px;
+  border: 1px solid colors.$accent_pink;
+  border-radius: 20px;
+
+  > img {
+    position: absolute;
+    top: 32px;
+    left: -11px;
+  }
+
+  > h2 {
+    margin: 0 0 10px 70px;
+    text-align: left;
+    line-height: 130%;
+    font-weight: 500;
+    color: colors.$blue;
+  }
+
+  > button {
+    margin-left: 60px;
+  }
+}
+
+.bannerContainer {
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  color: colors.$secondary_white;
+  overflow: hidden;
+
+  > img {
+    position: relative;
+    border-radius: 20px;
+    animation: appear 1s ease-out forwards;
+  }
+
+  > h2 {
+    position: absolute;
+    top: calc(50% - 46px);
+    left: calc(50% - 55px);
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0.2;
+    left: -100%;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}

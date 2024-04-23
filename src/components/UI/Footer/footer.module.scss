@@ -1,0 +1,64 @@
+@use 'src/assets/colors';
+
+.footer {
+  padding: 32px 123px 35px 50px;
+  background-color: colors.$secondary_very_light_grey;
+}
+
+.contacts-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 57px;
+
+  > p {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 41px;
+    font-weight: bold;
+    color: colors.$primary_dark;
+  }
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 31px;
+
+  p {
+    font-size: 16px;
+    margin: 0 0 10px;
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  button {
+    display: block;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.trade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: colors.$secondary_grey;
+
+  > p {
+    margin: 0;
+
+    &:not(:nth-of-type(1)) {
+      cursor: pointer;
+    }
+  }
+}

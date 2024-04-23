@@ -1,0 +1,15 @@
+.layout {
+  display: flex;
+  align-items: center;
+
+  aside {
+    height: 100%;
+    width: 351px;
+    padding: 24px 24px 24px 16px;
+  }
+}
+
+.main-container {
+  height: 100%;
+  flex-grow: 2;
+}
